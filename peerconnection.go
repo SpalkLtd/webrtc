@@ -2642,6 +2642,11 @@ func (pc *PeerConnection) GetStats() StatsReport {
 		receiver.collectStats(statsCollector, pc.statsGetter)
 	}
 
+	senders := pc.GetSenders()
+	for _, sender := range senders {
+		sender.collectStats(statsCollector, pc.statsGetter)
+	}
+
 	pc.api.mediaEngine.collectStats(statsCollector)
 
 	return statsCollector.Ready()
