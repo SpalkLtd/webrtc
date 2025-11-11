@@ -57,6 +57,7 @@ type SettingEngine struct {
 		UsernameFragment         string
 		Password                 string
 		IncludeLoopbackCandidate bool
+		CandidateTypes           []ice.CandidateType
 	}
 	replayProtection struct {
 		DTLS  *uint
@@ -272,6 +273,11 @@ func (e *SettingEngine) SetNAT1To1IPs(ips []string, candidateType ICECandidateTy
 // for some VM have public IP mapped to loopback interface.
 func (e *SettingEngine) SetIncludeLoopbackCandidate(include bool) {
 	e.candidates.IncludeLoopbackCandidate = include
+}
+
+// SetCandidateTypes sets the ICE Candidate Types that will be gathered
+func (e *SettingEngine) SetCandidateTypes(types []ice.CandidateType) {
+	e.candidates.CandidateTypes = types
 }
 
 // SetAnsweringDTLSRole sets the DTLS role that is selected when offering
