@@ -78,7 +78,7 @@ func (g *ICEGatherer) createAgent() error { //nolint:cyclop
 		return nil
 	}
 
-	candidateTypes := []ice.CandidateType{}
+	candidateTypes := g.api.settingEngine.candidates.CandidateTypes
 	if g.api.settingEngine.candidates.ICELite {
 		candidateTypes = append(candidateTypes, ice.CandidateTypeHost)
 	} else if g.gatherPolicy == ICETransportPolicyRelay {

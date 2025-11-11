@@ -512,6 +512,10 @@ func TestSettingEngine_CandidateFiltersAndNetworkTypes(t *testing.T) {
 	se.SetNetworkTypes(nts)
 	assert.Equal(t, nts, se.candidates.ICENetworkTypes)
 
+	cts := []ice.CandidateType{ice.CandidateTypeHost, ice.CandidateTypeRelay}
+	se.SetCandidateTypes(cts)
+	assert.Equal(t, cts, se.candidates.CandidateTypes)
+
 	ifFilter := func(name string) bool { return name == "eth0" }
 	ipFilter := func(ip net.IP) bool { return ip.IsLoopback() }
 
