@@ -35,4 +35,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/pion/ice/v4 v4.0.10 => github.com/SpalkLtd/ice/v4 v4.0.0-20251110231704-3001e7588d2a
+replace github.com/pion/ice/v4 v4.0.10 => github.com/SpalkLtd/ice/v4 v4.0.0-20251113014233-3981809101f1
